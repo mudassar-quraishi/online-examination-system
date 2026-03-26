@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-body;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Glass card */
+  .glass-card {
+    @apply bg-surface-container rounded-2xl backdrop-blur-md border border-outline-variant/20;
+    background: linear-gradient(135deg, rgba(23, 31, 51, 0.9) 0%, rgba(34, 42, 61, 0.7) 100%);
+  }
+
+  /* Primary gradient button */
+  .btn-primary {
+    @apply px-6 py-2.5 rounded-xl font-semibold text-sm font-display transition-all duration-300
+           bg-gradient-to-r from-primary-container to-secondary-container text-white
+           hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-primary/50;
+    box-shadow: 0 4px 20px rgba(128, 131, 255, 0.2);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 4px 24px rgba(128, 131, 255, 0.4);
+  }
+
+  /* Ghost/outline button */
+  .btn-ghost {
+    @apply px-6 py-2.5 rounded-xl font-semibold text-sm font-display transition-all duration-300
+           border border-outline-variant/40 text-on-surface-variant
+           hover:bg-surface-highest hover:text-on-surface hover:border-primary/40
+           focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+
+  /* Danger button */
+  .btn-danger {
+    @apply px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200
+           bg-error/20 text-error border border-error/30
+           hover:bg-error/30 hover:scale-[1.02];
+  }
+
+  /* Success button */
+  .btn-success {
+    @apply px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200
+           bg-primary/20 text-primary border border-primary/30
+           hover:bg-primary/30 hover:scale-[1.02];
+  }
+
+  /* Input */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl text-sm text-on-surface
+           bg-surface-low border border-outline-variant/30
+           focus:outline-none focus:border-primary/80
+           transition-all duration-200 placeholder:text-on-surface-variant/50;
+  }
+  .input-field:focus {
+    box-shadow: 0 0 0 3px rgba(192, 193, 255, 0.08);
+  }
+
+  /* Label */
+  .form-label {
+    @apply block text-sm font-medium text-on-surface-variant mb-1.5;
+  }
+
+  /* Data Table */
+  .data-table {
+    @apply w-full text-sm text-on-surface;
+  }
+  .data-table th {
+    @apply text-left px-4 py-3 text-on-surface-variant font-semibold font-display
+           bg-surface-high uppercase tracking-wider text-xs;
+  }
+  .data-table td {
+    @apply px-4 py-3.5 border-t border-outline-variant/10;
+  }
+  .data-table tr:hover td {
+    @apply bg-surface-high/50;
+  }
+
+  /* Badge */
+  .badge-success {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-primary/20 text-primary;
+  }
+  .badge-warning {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-tertiary/20 text-tertiary;
+  }
+  .badge-error {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-error/20 text-error;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-2xl font-bold font-display text-on-surface mb-1;
+  }
+  .section-subtitle {
+    @apply text-sm text-on-surface-variant mb-6;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-outline-variant/40 rounded-full;
+  }
+}
